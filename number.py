@@ -29,6 +29,7 @@ def shiftSequential(n,pattern):
     return result
 
 def matchSequential(n):
+    #TODO matchPatternList
     matchPatternList = ["123456","4321",'12345','23456']
     
     for matchPattern in matchPatternList:
@@ -41,9 +42,9 @@ def matchSequential(n):
     return ['',False]
 
 def ifMatchSequential(n):
-    p1 = 0.3
-    p2 = 0.3
-    p3 = 0.4
+    p1 = 0.33
+    p2 = 0.1
+    p3 = 0.57
     p = random()
     #flip
     newN = n
@@ -81,6 +82,7 @@ def generate_numbers(string):
     elif patternExist:
         for i in range(0,iter_times/2):
             output.append(ifMatchBirthday(string))
+            print ifMatchBirthday(string)
 
         output1 = copy.deepcopy(output)
         for item in output1:
@@ -88,6 +90,7 @@ def generate_numbers(string):
     else:
         for i in range(0,iter_times):
             output.append(ifMatchBirthday(string))
+    #TODO IF MATCH BIRTHDAY PATTERN, ELSE
 
     return output
 
