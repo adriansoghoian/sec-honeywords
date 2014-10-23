@@ -47,6 +47,5 @@ def switch_symbol(symbols):
                 new_ascii = ascii     
             new_symbols = new_symbols + chr(new_ascii)
         new_symbols_list.append(new_symbols)
-    print new_symbols_list
     return new_symbols_list
     

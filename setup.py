@@ -3,8 +3,7 @@ import sys, string, re, copy
 from letters import *
 from number import *
 from symbol_split import *
-
-totalHoneywordNum = 19
+from random import shuffle
 
 def split_password(string):
 	password_indices = []
@@ -56,12 +55,13 @@ def reconstruct_honeyword(variations, password_indices):
     return output
 
 if __name__ == "__main__":
-	if len(sys.argv) == 2:
+	if len(sys.argv) > 1:
 		password = sys.argv[1]
+		totalHoneywordNum = int(sys.argv[2])
+		variations, password_indices = split_password(password)
+		honeywords = reconstruct_honeyword(variations, password_indices)
+		honeywords.append(password)
+		shuffle(honeywords)
+		print honeywords
 	else:
-		print "Please pass in a password as a command line argument, please."
-	variations, password_indices = split_password(password)
-	print password_indices
-
-	honeyword = reconstruct_honeyword(variations, password_indices)
-	print honeyword
+		print "Pass in the password as the first command line argument and the # of honeywords as the second."
