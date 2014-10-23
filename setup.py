@@ -31,9 +31,8 @@ def generate_variations(substring):
 		return generate_strings(substring)
 
 def reconstruct_honeyword(variations, password_indices):
-	for i, char_type in enumerate(password_indices)
-
-
+	for i, char_type in enumerate(password_indices):
+		for j, substring in enumerate(char_type):
 
 if __name__ == "__main__":
 	if len(sys.argv) == 2:
