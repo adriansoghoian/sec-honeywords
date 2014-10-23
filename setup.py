@@ -1,6 +1,8 @@
 # Input is passed into program through the command line
 import sys, string, re, copy
 from letters import *
+from number import *
+from symbol_split import *
 
 def split_password(string):
 	password_indices = []
@@ -20,13 +22,18 @@ def split_password(string):
 def generate_variations(substring):
 	try:
 		int(substring[0])
-		# return generate_numbers(substring)
+		return generate_numbers(substring)
 	except ValueError:
 		substring[0]
 	if re.match('\W+', substring):
 		return switch_symbol(substring)
 	else:
 		return generate_strings(substring)
+
+def reconstruct_honeyword(variations, password_indices):
+	for i, char_type in enumerate(password_indices)
+
+
 
 if __name__ == "__main__":
 	if len(sys.argv) == 2:
@@ -35,6 +42,3 @@ if __name__ == "__main__":
 		print "Please pass in a password as a command line argument, please."
 	variations, password_indices = split_password(password)
 	print password_indices
-
-
-	
