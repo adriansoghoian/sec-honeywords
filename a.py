@@ -31,7 +31,7 @@ def generate_variations(substring):
 	else:
 		return generate_strings(substring)
 
-def reconstruct_honeyword(variations, password_indices): 
+def reconstruct_honeyword(variations, password_indices, totalHoneywordNum): 
     start_indices = []
     for i, char_type in enumerate(password_indices):
         for j, substring in enumerate(char_type):
@@ -59,7 +59,7 @@ if __name__ == "__main__":
 		password = sys.argv[1]
 		totalHoneywordNum = int(sys.argv[2])
 		variations, password_indices = split_password(password)
-		honeywords = reconstruct_honeyword(variations, password_indices)
+		honeywords = reconstruct_honeyword(variations, password_indices, totalHoneywordNum)
 		honeywords.append(password)
 		shuffle(honeywords)
 		print honeywords
