@@ -6,6 +6,7 @@ import sys, random
 import jellyfish as jf
 from sets import Set
 from a import *
+import random
 
 def load_pws_in_memory(txt_file_path):
 	passwords = []
@@ -26,6 +27,8 @@ def find_similar_pws(pw, pw_list, num_passwords):
 		match_indices.append(i)
 		best_leven_distances.append(distance)
 	pwd_tuples = sorted(zip(match_indices, best_leven_distances), key=lambda tup: tup[1])
+	pwd_tuples = pwd_tuples[2000:100000]
+	pwd_tuples = [ pwd_tuples[i] for i in sorted(random.sample(xrange(len(pwd_tuples)), 1000)) ]
 	output = lookup_pwds(pwd_tuples, pw_list, num_passwords)
 	return output
 
@@ -59,5 +62,6 @@ if __name__ == "__main__":
 		output = list(set(output)) + [ password ]
 		shuffle(output)
 		print output
+		print len(output)
 	else:
 		print "Pass in the password as the first command line argument and the # of honeywords as the second."
